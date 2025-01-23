@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv1j8oakpf8ei"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_c40m3"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="1_cd46c"]
+[ext_resource type="Script" path="res://Scripts/menu_buttons.gd" id="1_phueq"]
+[ext_resource type="Script" path="res://Scripts/game_selection_node.gd" id="2_rd6nw"]
+[ext_resource type="Script" path="res://Scripts/fruit_start_menu_node.gd" id="3_ngj2e"]
+[ext_resource type="Script" path="res://Scripts/love_you_message.gd" id="3_ubl1r"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="5_2oac5"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("1_cd46c")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 576.0
+offset_bottom = 1248.0
+color = Color(0.62, 0.62, 0.62, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.294118)
+position = Vector2(288, 624)
+
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource("1_c40m3")
+
+[node name="Title" type="Label" parent="UI"]
+offset_top = 200.0
+offset_right = 576.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "An App for My Love"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="UI"]
+offset_left = 38.0
+offset_top = 200.0
+offset_right = 538.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "By: The boy who can't stop thinking about you, Dylan Cygul
+
+
+I love you Maddie, I hope you enjoy!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MenuButtons" type="Node2D" parent="UI"]
+position = Vector2(0, 500)
+script = ExtResource("1_phueq")
+
+[node name="GameSelectionNode" type="Node2D" parent="UI/MenuButtons"]
+script = ExtResource("2_rd6nw")
+
+[node name="GameSelection" type="VBoxContainer" parent="UI/MenuButtons/GameSelectionNode"]
+offset_right = 576.0
+offset_bottom = 197.0
+
+[node name="Fruit Merge" type="Button" parent="UI/MenuButtons/GameSelectionNode/GameSelection"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Fruit Merge"
+flat = true
+
+[node name="More Coming Soon!" type="Button" parent="UI/MenuButtons/GameSelectionNode/GameSelection"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Press for a surprise...
+"
+flat = true
+
+[node name="Quit" type="Button" parent="UI/MenuButtons/GameSelectionNode/GameSelection"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+flat = true
+
+[node name="LoveYouMessage" type="Label" parent="UI/MenuButtons/GameSelectionNode"]
+offset_left = 50.0
+offset_top = 800.0
+offset_right = 526.0
+offset_bottom = 855.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Message"
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_ubl1r")
+
+[node name="FruitStartMenuNode" type="Node2D" parent="UI/MenuButtons"]
+script = ExtResource("3_ngj2e")
+
+[node name="FruitStartMenu" type="VBoxContainer" parent="UI/MenuButtons/FruitStartMenuNode"]
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 197.0
+
+[node name="Easy" type="Button" parent="UI/MenuButtons/FruitStartMenuNode/FruitStartMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Easy"
+flat = true
+
+[node name="Hard" type="Button" parent="UI/MenuButtons/FruitStartMenuNode/FruitStartMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Hard"
+flat = true
+
+[node name="Back" type="Button" parent="UI/MenuButtons/FruitStartMenuNode/FruitStartMenu"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Back"
+flat = true
+
+[node name="Reset" type="Button" parent="UI/MenuButtons/FruitStartMenuNode"]
+offset_left = 576.0
+offset_top = 500.0
+offset_right = 1152.0
+offset_bottom = 563.0
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Reset Highscore"
+flat = true
+
+[node name="Highscore" type="Label" parent="UI/MenuButtons/FruitStartMenuNode"]
+offset_left = 576.0
+offset_top = 300.0
+offset_right = 1152.0
+offset_bottom = 355.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Highscore: "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Global" type="Node2D" parent="."]
+script = ExtResource("5_2oac5")
+
+[connection signal="pressed" from="UI/MenuButtons/GameSelectionNode/GameSelection/Fruit Merge" to="UI/MenuButtons" method="_on_fruit_merge_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/GameSelectionNode/GameSelection/More Coming Soon!" to="UI/MenuButtons" method="_on_more_coming_soon_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/GameSelectionNode/GameSelection/Quit" to="UI/MenuButtons" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/FruitStartMenuNode/FruitStartMenu/Easy" to="UI/MenuButtons/FruitStartMenuNode" method="_on_easy_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/FruitStartMenuNode/FruitStartMenu/Hard" to="UI/MenuButtons/FruitStartMenuNode" method="_on_hard_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/FruitStartMenuNode/FruitStartMenu/Back" to="UI/MenuButtons/FruitStartMenuNode" method="_on_back_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/FruitStartMenuNode/Reset" to="UI/MenuButtons/FruitStartMenuNode" method="_on_reset_pressed"]

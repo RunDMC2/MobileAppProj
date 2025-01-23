@@ -1,0 +1,271 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckklurtco8qqb"]
+
+[ext_resource type="Script" path="res://Scripts/fruit_merge_game.gd" id="1_ghceh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtbpb"]
+size = Vector2(500, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qej7w"]
+size = Vector2(4, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg6gv"]
+size = Vector2(38, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cnjk"]
+size = Vector2(600, 20)
+
+[node name="FruitMergeGame" type="Node2D"]
+script = ExtResource("1_ghceh")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 576.0
+offset_bottom = 1248.0
+color = Color(0.91, 0.85995, 0.6097, 1)
+
+[node name="Box" type="Node2D" parent="."]
+position = Vector2(0, 30)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Box"]
+
+[node name="Floor" type="CollisionShape2D" parent="Box/StaticBody2D"]
+position = Vector2(288, 1000)
+shape = SubResource("RectangleShape2D_xtbpb")
+
+[node name="ColorRect" type="ColorRect" parent="Box/StaticBody2D/Floor"]
+offset_left = -250.0
+offset_top = -25.0
+offset_right = 250.0
+offset_bottom = -21.0
+color = Color(0, 0, 0, 1)
+
+[node name="Wall_left" type="CollisionShape2D" parent="Box/StaticBody2D"]
+position = Vector2(36, 700)
+shape = SubResource("RectangleShape2D_qej7w")
+
+[node name="ColorRect" type="ColorRect" parent="Box/StaticBody2D/Wall_left"]
+offset_left = -2.0
+offset_top = -300.0
+offset_right = 2.0
+offset_bottom = 279.0
+color = Color(0, 0, 0, 1)
+
+[node name="Wall_right" type="CollisionShape2D" parent="Box/StaticBody2D"]
+position = Vector2(540, 700)
+shape = SubResource("RectangleShape2D_qej7w")
+
+[node name="ColorRect" type="ColorRect" parent="Box/StaticBody2D/Wall_right"]
+offset_left = -2.0
+offset_top = -300.0
+offset_right = 2.0
+offset_bottom = 279.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D"]
+position = Vector2(19, 750)
+shape = SubResource("RectangleShape2D_eg6gv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Box/StaticBody2D"]
+position = Vector2(557, 750)
+shape = SubResource("RectangleShape2D_eg6gv")
+
+[node name="BoxDetails" type="Node2D" parent="Box"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Box/BoxDetails"]
+color = Color(0.839216, 0.698039, 0.443137, 1)
+polygon = PackedVector2Array(456, 343, 538, 401, 538, 973, 455, 912)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Box/BoxDetails"]
+color = Color(0.839216, 0.698039, 0.443137, 1)
+polygon = PackedVector2Array(121, 341, 38, 400, 38, 971, 122, 911)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Box/BoxDetails"]
+color = Color(0.92, 0.77832, 0.5152, 1)
+polygon = PackedVector2Array(124, 341, 452, 341, 453, 911, 124, 911)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Box/BoxDetails"]
+color = Color(0.73, 0.609915, 0.3869, 1)
+polygon = PackedVector2Array(37, 975, 122, 914, 454, 913, 539, 975)
+
+[node name="Line2D2" type="Line2D" parent="Box/BoxDetails"]
+position = Vector2(0, -573)
+scale = Vector2(1, 0.996269)
+points = PackedVector2Array(35.15, 978.3, 121, 916, 455, 916, 540.85, 978.3)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="Box/BoxDetails"]
+scale = Vector2(1, 0.996269)
+points = PackedVector2Array(35.15, 978.3, 121, 916, 455, 916, 540.85, 978.3)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Box/BoxDetails"]
+z_index = 1
+points = PackedVector2Array(36, 402, 540, 402)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Box/BoxDetails"]
+points = PackedVector2Array(122.4, 340, 122.4, 912)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Box/BoxDetails"]
+points = PackedVector2Array(453.6, 340, 453.6, 912)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="DeathPlanes" type="Node2D" parent="."]
+position = Vector2(0, -550)
+
+[node name="Area2D" type="Area2D" parent="DeathPlanes"]
+
+[node name="LeftDeathPlane" type="CollisionShape2D" parent="DeathPlanes/Area2D"]
+position = Vector2(-280, 1000)
+rotation = 0.226893
+shape = SubResource("RectangleShape2D_5cnjk")
+
+[node name="LeftDeathPlaneWall" type="CollisionShape2D" parent="DeathPlanes/Area2D"]
+position = Vector2(-476, 652)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_5cnjk")
+
+[node name="RightDeathPlane" type="CollisionShape2D" parent="DeathPlanes/Area2D"]
+position = Vector2(856, 1000)
+rotation = -0.226893
+shape = SubResource("RectangleShape2D_5cnjk")
+
+[node name="RightDeathPlaneWall" type="CollisionShape2D" parent="DeathPlanes/Area2D"]
+position = Vector2(1058, 650)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_5cnjk")
+
+[node name="Win or Loss Screen" type="Node2D" parent="."]
+z_index = 4
+
+[node name="Background" type="ColorRect" parent="Win or Loss Screen"]
+modulate = Color(0.5, 0.5, 0.5, 0)
+z_index = 2
+offset_right = 576.0
+offset_bottom = 1248.0
+
+[node name="Loss Screen" type="Node2D" parent="Win or Loss Screen"]
+z_index = 5
+position = Vector2(-600, 0)
+
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="Win or Loss Screen/Loss Screen"]
+z_index = 5
+offset_left = 171.5
+offset_top = 800.0
+offset_right = 404.5
+offset_bottom = 958.0
+
+[node name="Try Again" type="Button" parent="Win or Loss Screen/Loss Screen/ButtonsVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Try Again"
+
+[node name="Exit" type="Button" parent="Win or Loss Screen/Loss Screen/ButtonsVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="CuteLoseMessage" type="Label" parent="Win or Loss Screen/Loss Screen"]
+offset_left = 38.0
+offset_top = 500.0
+offset_right = 538.0
+offset_bottom = 555.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Message"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Game Over" type="Label" parent="Win or Loss Screen/Loss Screen"]
+offset_left = 38.0
+offset_top = 150.0
+offset_right = 538.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Game Over..."
+horizontal_alignment = 1
+
+[node name="Win Screen" type="Node2D" parent="Win or Loss Screen"]
+z_index = 5
+position = Vector2(-600, 0)
+
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="Win or Loss Screen/Win Screen"]
+z_index = 5
+offset_left = 171.5
+offset_top = 800.0
+offset_right = 404.5
+offset_bottom = 958.0
+
+[node name="Try Again" type="Button" parent="Win or Loss Screen/Win Screen/ButtonsVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Try Again"
+
+[node name="Exit" type="Button" parent="Win or Loss Screen/Win Screen/ButtonsVBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="CuteWinMessage" type="Label" parent="Win or Loss Screen/Win Screen"]
+offset_left = 38.0
+offset_top = 500.0
+offset_right = 538.0
+offset_bottom = 555.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Message"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="You Win" type="Label" parent="Win or Loss Screen/Win Screen"]
+offset_left = 38.0
+offset_top = 150.0
+offset_right = 538.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="ScoreContainer" type="VBoxContainer" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 6
+offset_left = 38.0
+offset_top = 1050.0
+offset_right = 538.0
+offset_bottom = 1192.0
+
+[node name="Score" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score: "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Highscore" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Highscore:"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="body_entered" from="DeathPlanes/Area2D" to="." method="_on_death_plane_entered"]
+[connection signal="pressed" from="Win or Loss Screen/Loss Screen/ButtonsVBoxContainer/Try Again" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="Win or Loss Screen/Loss Screen/ButtonsVBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Win or Loss Screen/Win Screen/ButtonsVBoxContainer/Try Again" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="Win or Loss Screen/Win Screen/ButtonsVBoxContainer/Exit" to="." method="_on_exit_pressed"]

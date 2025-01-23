@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://nix31wt6uvgb"]
+
+[ext_resource type="Script" path="res://Scripts/fruit.gd" id="1_7tvca"]
+[ext_resource type="Texture2D" uid="uid://ciqlxr5u2kk5c" path="res://Sprites/blueberry.png" id="2_j62ix"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4rsyt"]
+resource_local_to_scene = true
+radius = 30.0
+
+[node name="Fruit" type="Node2D"]
+script = ExtResource("1_7tvca")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+can_sleep = false
+freeze = true
+contact_monitor = true
+max_contacts_reported = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_4rsyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(2, 2)
+scale = Vector2(0.0752207, 0.0754414)
+texture = ExtResource("2_j62ix")
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
